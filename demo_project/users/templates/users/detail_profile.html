@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<p>User is :{{ profiles.user }}</p><br>
+<p>Name :{{ profiles.name }}</p><br>
+<p>Email:{{ profiles.email }}</p><br>
+<p>Username{{ profiles.username }}</p><br>
+<p>Short introduction{{ profiles.short_intro }}</p><br>
+<img src={{ profiles.profile_image.url }}><br>
+<p>Bio{{ profiles.bio }}</p><br>
+<p>Social github account{{ profiles.social_github }}</p><br>
+<p>Social twitter account{{ profiles.social_twitter }}</p><br>
+<p>Social linkedin account{{ profiles.social_linkedin }}</p><br>
+<p>Social youtube account{{ profiles.social_youtube }}</p><br>
+<p>Social website{{ profiles.social_website }}</p><br>
+<p>Created at{{ profiles.created  }}</p><br>
+
+<h2>Project</h2>
+{% for project in profile.project_set.all %}
+{{ project.vote_total }}<br>
+{{ project.vote_ratio }}<br>
+{{ project.description }}<br>
+{{ project.created }}<br>
+{{ project.imageURL }}<br>
+{% endfor %} 
+
+<a href="{% url 'create-message' profiles.id %}">Send Message</a>
+
+
+
+ {% endblock content %}
+
+
+
+

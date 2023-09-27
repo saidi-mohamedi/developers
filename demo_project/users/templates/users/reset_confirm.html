@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h3>Enter new password</h3>
+<p>Please enter your new password twice so we can verify you typed it in correctly.</p>
+<form method='POST'  action=''>
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="chane my password">
+</form>
+
+
+{% endblock content %}

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %} 
+<form action='' method='POST'>
+    {% csrf_token %}
+<p>Are you sure you want to delete</p><br>
+<a href="{% url 'user-account' %}">Go back</a><br>
+<button>Confirm to delete</button>
+</form>
+{% endblock content %}

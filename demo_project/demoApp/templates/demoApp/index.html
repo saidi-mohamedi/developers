@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<img src="{{ project.featured_image.url }}">
+<p>Title {{project.title}} </p>
+ <br>
+ <p><a href="{% url 'detail-profile' project.owner.id %}">Owner is{{project.owner.name}}</a>
+</p>
+ <br>   
+<p>Description {{project.description}}</p> 
+<br>
+<p>Created at {{ project.created}}</p>
+<br>
+<p>DEMO LINK {{ project.demo_link}}</p>
+<br>
+<p>SOURCE LINK {{ project.source_link}}</p>
+<br>
+
+<form action="{% url 'index' project.id %}" method='POST'>
+    {% for field in form %}
+    {% csrf_token %}
+    <div class="form__field">
+        <label>{{field.label}}</label>
+        {{field}}
+    </div>    
+    {% endfor %}
+    <input type="submit" value="Add review">
+</form> 
+<h2>Comments</h2>
+ {% for review in project.review_set.all %}
+ {% if review.body %}
+ <div class="comment">
+    <a href="{% url 'detail-profile' review.owner.id %}"> 
+    <img class="avatar avatar--md" src="{{review.owner.profile_image.url }}"> </a>
+   
+    <div class="comment__details">
+        <a href="{% url 'index' review.owner.id %}" class="comment__author">{{review.owner.name}}</a>
+        <p class="comment__info">{{review.body|linebreaksbr}}</p>
+    </div> 
+</div>  
+{% endif %}    
+ {% endfor %}
+
+{% endblock content %}
+   

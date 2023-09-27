@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<form action='' method='POST'>
+     {% csrf_token %}
+    <p>Are you sure you want to delete ?</p>
+    <a href="{% url 'dashboard' %}">Cancel to delete</a>
+    <br><br><br>
+    <button>Confirm to delete</button>
+
+
+
+</form>
+{% endblock content%}

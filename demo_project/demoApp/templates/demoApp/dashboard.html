@@ -1,0 +1,41 @@
+
+        {% extends 'base.html' %}
+        {% block content %}
+        <h2>SEARCH FOR ALL PROJECTS</h2><br>
+        
+        <form action="{% url 'dashboard' %}" method="get" class="search-bar" id="form"> 
+            {% csrf_token %}
+            <input class="input" type="search" placeholder="Search for any project"
+             name="search_query" value="{{search_query}}" />
+            <input type="Submit" class="button" value="search" />
+            </form>
+    
+    
+            <br><br><br><br><br>
+<br><br><br><br><br>
+<div class="container">        
+        {% for project in project %}
+          
+           <p>Tittle : {{ project.title }}</p><br> 
+            <img src="{{ project.imageURL }}"><br>
+            <p>Vote Totall:{{ project.vote_total}}</p><br> 
+            <p>Vote Ratio:{{ project.vote_ratio}}<br></p> 
+            <p>Created at:{{ project.created}}<br></p> 
+            <a href="{% url 'index' project.id %}">View Details</a><br><br><br><br><br> 
+            {% endfor %}
+</div>   
+     <!--   <div class="pagination">
+            <ul class="container">
+                {% for page in paginator.page_range %}
+                <li><a href="?page={{page}}">{{page}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    -->
+  {% include 'pagination.html' with queryset=project custom_range=custom_range %}  
+        {% endblock content  %}
+      
+
+
+
+        

@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>SEARCH FOR ALL DEVELOPER AROUND THE WORLD</h2><br>
+    <form action="{% url 'profile' %}" method="get" class="form, search-bar" id="form"> 
+        {% csrf_token %}
+        <input class="input" type="search" placeholder="Search for any developer"
+         name="search_query" value="{{search_query}}" />
+         <input type="Submit" class="button" value="search" />
+    </form>
+    <br><br><br><br><br> <br><br><br><br><br>
+    <br><br><br><br><br>
+<div class="container">    
+    {% for profile in profiles %}
+     
+        <p>User is :{{ profile.user }}</p><br>
+        <p>Username{{ profile.username }}</p><br>
+        <p>Description{{ profile.description }}</p><br>
+        <img src={{ profile.imageURL }}><br>
+        <a href="{% url 'detail-profile' profile.id %}">view detail</a>
+        <br><br>
+ 
+
+        <h1>Top Skills</h1>
+        {% for skill in profile.skill_set.all %} 
+            {{ skill.name}}
+        {% endfor %}
+    
+    {% endfor %} 
+     
+    <div class="pagination">
+        <ul class="container">
+            {% if profiles.has_previous %} 
+            <li><a href="?page={{profile.previous_page_number}}" class="btn page-link">&#10094; Prev</a></li>    
+            {% endif %}
+            {% for page in paginator.page_range %} 
+                {% if page == profile.number %}
+                   <li><a href="?page={{page}}" class="btn page-link active">{{page}}</a></li>
+                {% else %}
+                   <li><a href="?page={{page}}" class="btn page-link">{{page}}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if profiles.has_next %} 
+            <li><a href="?page={{profile.next_page_number}}" class="btn page-link">Next &#10095;</a></li>    
+            {% endif %}
+        </ul>
+
+    </div>
+</div>
+    
+{% endblock content %}
+
+
+
+
+ 
+
+	
+	
+

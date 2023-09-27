@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">  
+{{profile.name}}<br>
+{{profile.imageURL}}<br>
+<h1>Skills</h1><br>
+<a href="{% url 'create-skills' %}">Add skills</a><br>
+{% for skills in skills %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Skills info</th>
+    </tr>
+<tr>
+<td>{{skills.name}}</td>
+<td>{{skills.description}}</td>
+<td><a href="{% url 'update-skills'  skills.id %}">Edit</a></td>
+<td><a href="{% url 'delete-skills' skills.id %}">delete</a></td>
+</tr>
+</table>
+{% endfor %}
+<br>
+<a href = "{% url 'create-project' %}">Add project</a><br>
+{% for project in project %} 
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        
+    </tr>
+<tr>
+<td>{{project.title}}</td>
+<td>{{project.description}}</td>
+<td><a href = "{% url 'update-project' project.id %}">Edit </a><br></td>
+<td><a href = "{% url 'delete-project' project.id %}">Delete</a><br></td>
+</tr>
+</table>
+{% endfor %}
+</div>
+{% endblock content %}

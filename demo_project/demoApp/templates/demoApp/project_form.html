@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="" method="POST" enctype="multipart/form-data" class="form" > 
+    {% csrf_token %}
+{{ form.as_p }}
+    <label for="formInput#text">Tags</label>
+    <textarea class="input" name="newtags" placeholder="Add tags here..."></textarea><br>
+    <input type="submit">
+</form>
+
+{% endblock content %} 

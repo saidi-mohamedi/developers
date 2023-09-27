@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+  <style>
+
+.header {
+  margin-top: 30px;
+  padding: 200px;
+  text-align: center;
+  color: blue;
+  background-size: 100% 100%;
+}
+.header h1 {
+  font-size: 40px;
+}
+
+
+
+
+
+body {margin:0;}
+
+.navbar {
+  background-color: blue;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+#navbar a.active {
+  background-color: #04AA6D;
+  color: white;
+}     
+      
+      .dropbtn {
+  background-color: blue;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+.dropbtn a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: black;}
+
+
+
+     
+  
+  #form{
+    display: block;
+    left: 20%;
+    position: absolute;
+    top: 25%;
+  }
+  
+    .input[type=search]{
+      border: 5px  orange;
+      box-sizing: border-box;
+      font-size:1.5em;
+      height: 2em;
+      margin-left: 10vw;
+      padding: .5em;
+      transition: all 2s ease-in;
+      width: 30vw;
+      z-index:1;
+      &:focus {
+        border: solid 3px #09f;      
+        outline: solid #fc0 2000px;
+      }
+    }
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    } 
+    h2 {text-align: center;} 
+
+
+   
+/*=======================
+Pagination
+========================*/
+.pagination {
+margin-top: 8rem;
+margin-bottom: 10rem;
+}
+
+.pagination > ul {
+flex-wrap: wrap;
+list-style: none;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 1rem;
+}
+
+.pagination .btn {
+color: var(--color-sub);
+}
+
+.pagination .btn.btn--sub {
+color: var(--color-light);
+}
+.btn--sub {
+  background-color: var(--color-sub-light);
+}
+
+.search-bar {
+  background-color:grey;
+}
+
+
+.inbox {
+  height: 90vh;
+}
+
+.inbox__title,
+.inbox__title span {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--color-sub);
+  text-transform: uppercase;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.inbox__title span {
+  color: var(--color-main);
+}
+
+.messages {
+  list-style: none;
+  background: var(--color-white);
+  padding: 0.5rem 3rem;
+  border: 2px solid var(--color-light);
+  border-radius: 0.7rem;
+}
+
+.message {
+  padding: 2.5rem 0;
+}
+
+.message > a span {
+  font-size: 1.45rem;
+  font-weight: 500;
+}
+
+.message.message--unread a span {
+  font-weight: 700;
+  color: var(--color-sub);
+}
+
+.message:not(:last-child) {
+  border-bottom: 2px solid var(--color-white-light);
+}
+
+.message > a {
+  display: flex;
+  gap: 1rem;
+}
+
+.message__author,
+.message__date {
+  flex-basis: 25%;
+}
+
+.message__subject {
+  flex-basis: 50%;
+}
+
+.message__date {
+  text-align: right;
+}
+
+/*=======================
+  Single Message
+========================*/
+
+
+/*
+.messagePage .message {
+  list-style: none;
+  background: var(--color-white);
+  padding: 3.5rem 5rem;
+  border: 2px solid var(--color-light);
+  border-radius: 0.7rem;
+}
+
+.messagePage .message__subject {
+  font-size: 2.8rem;
+  color: var(--color-sub);
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+}
+
+.messagePage .message__author {
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.messagePage .message__date {
+  font-size: 1.4rem;
+  font-weight: 400;
+  text-align: left;
+  margin-bottom: 3rem;
+}
+
+.backButton {
+  background: var(--color-main-light);
+  color: var(--color-main);
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.backButton i {
+  font-size: 1.8rem;
+}
+*/
+h2 {color: blue}
+ 
+#sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.centerr {
+  text-align:center;
+  position:center;
+}
+</style>
+
+</head>
+<body>
+
+<div class="navbar" id="#">
+  
+  <div class="dropdown">
+    <button class="dropbtn"><h6><a href="{% url 'home' %}">Home</a></h6></button>
+    <div class="dropdown-content">
+      <!-- list of items/pages on this menulink -->
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><h6><a href="#">About Us<a></h4></button>
+    <div class="dropdown-content">
+      <!-- list of items/pages on this menulink -->
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><h6><a href="#">Contact</a></h6></button>
+    <div class="dropdown-content">
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><h6>Technologies</h6> </button>
+    <div class="dropdown-content">
+      <a href="#">AI</a>
+      <a href="#">CloudComputing </a>
+      <a href="#">Robotics</a>
+      <a href="#">Web designer</a> 
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><a Projects href="{% url 'dashboard' %}">Projects</a></button>
+    <div class="dropdown-content">
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn"><a href="{% url 'login' %}">Login</a></button>
+    <div class="dropdown-content">
+    </div>
+  </div>
+   
+    {% if request.user.is_authenticated %}
+    <div class="dropdown">
+      <button class="dropbtn"><a href="{% url 'user-account' %}">Account</a></button>
+      <div class="dropdown-content"></div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><a href="{% url 'inbox' %}">Inbox</a></button>
+      <div class="dropdown-content"></div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><a href="{% url 'dashboard' %}">Projects</a></button>
+      <div class="dropdown-content"></div>
+    </div>
+    <div class="dropdown">
+      <button class="dropbtn"><a href="{% url 'profile' %}">Profile</a></button>
+      <div class="dropdown-content"></div>
+    </div>
+  
+       <div class="topnav-right">
+        <div class="dropdown">
+          <button class="dropbtn"><a href="{% url 'user-logout' %}">Logout</a></button>
+          <div class="dropdown-content"></div>
+        </div>
+       </div>
+    {% else %}
+    
+    {% endif %}
+  
+</div>
+
+
+{% if messages %}
+<ul class="messages">
+{% for message in messages %}
+<li {% if message.tags %} class="{{message.tags}}"{% endif %}>{{message}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+</body>
+</html>
